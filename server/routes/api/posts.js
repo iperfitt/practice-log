@@ -27,7 +27,9 @@ router.delete('/:id', async (req, res) => {
     res.status(200).send();
 });
 
+
 async function loadPostsCollection() {
+    console.log('mongodb connection string', process.env.MONGODB_URI);
     const client = await mongodb.MongoClient.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
