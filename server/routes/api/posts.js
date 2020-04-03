@@ -30,13 +30,13 @@ router.delete('/:id', async (req, res) => {
 
 async function loadPostsCollection() {
     console.log('mongodb connection string', process.env.MONGODB_URI);
-    
+
     const client = await mongodb.MongoClient.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
 
-    return client.db('practice-log').collection('posts');
+    return client.db(process.env.MONGODB_DBNAME).collection('posts');
 }
 
 module.exports = router;
