@@ -28,7 +28,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 async function loadPostsCollection() {
-    const client = await mongodb.MongoClient.connect('mongodb://localhost:27017/practice-log', {
+    const client = await mongodb.MongoClient.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
